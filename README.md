@@ -325,6 +325,14 @@ the reverse.
 So: screen on abstracts, conclude on full text. Mark abstract-only reads
 distinctly in your library and never let one carry an argument.
 
+### Documentation
+
+- [docs/REGISTRY.md](docs/REGISTRY.md) — registry format: tier types, sections, key patterns, aliases
+- [docs/ACQUISITION.md](docs/ACQUISITION.md) — getting full text, and the boundaries that matter
+- [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) — failures seen in real use, with their actual causes
+- [templates/](templates/) — note templates: source, concept, comparison, map-of-content
+- [CONTRIBUTING.md](CONTRIBUTING.md) — what this project will and will not accept
+
 ### License
 
 MIT — see [LICENSE](LICENSE). Third-party attributions in [NOTICE.md](NOTICE.md).
@@ -592,6 +600,14 @@ python -m ledger.reconcile
 
 所以：**用摘要筛选，用全文定论。** 在学习库里把「仅摘要级」单独标出，
 永远不要让这类记录承载论证。
+
+### 文档
+
+- [docs/REGISTRY.md](docs/REGISTRY.md) — 登记册格式：三种 tier 类型、小节限定、键模式、别名
+- [docs/ACQUISITION.md](docs/ACQUISITION.md) — 怎么取全文，以及不可越过的边界
+- [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) — 真实使用中的故障与其真实原因
+- [templates/](templates/) — 笔记模板：source / concept / comparison / MOC
+- [CONTRIBUTING.md](CONTRIBUTING.md) — 本项目接受什么、不接受什么
 
 ### 许可
 
