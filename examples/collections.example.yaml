@@ -1,0 +1,72 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# collections.yaml — short aliases for the Zotero collections you file into.
+#
+# Get the real 8-character keys for YOUR library with:
+#     python -m ledger.zot collections
+#
+# The tree below is an illustrative compliant / elastic-joint manipulator
+# library. Every key here is a placeholder and will NOT resolve against any real
+# Zotero library — replace them all.
+#
+# 下面是一个「柔驱动 / 弹性关节机械臂」示例库结构。
+# 所有 key 都是占位符，解析不出任何真实分类——请全部替换。
+#
+# Copy to collections.yaml (gitignored) and edit. | 复制为 collections.yaml 后修改。
+# ─────────────────────────────────────────────────────────────────────────────
+
+default: inbox
+
+collections:
+  # ── Compliant actuation ──────────────────────────────────────────────────
+  actuation:         {key: AAAA1111, path: "Compliant actuation"}
+  sea:               {key: AAAA2222, path: "Compliant actuation/Series elastic"}
+  vsa:               {key: AAAA3333, path: "Compliant actuation/Variable stiffness"}
+  transmission:      {key: AAAA4444, path: "Compliant actuation/Transmission and gearing"}
+
+  # ── Control ──────────────────────────────────────────────────────────────
+  control:           {key: BBBB1111, path: "Control"}
+  torque-control:    {key: BBBB2222, path: "Control/Joint torque control"}
+  impedance:         {key: BBBB3333, path: "Control/Impedance and admittance"}
+  passivity:         {key: BBBB4444, path: "Control/Passivity and coupled stability"}
+  tracking:          {key: BBBB5555, path: "Control/Trajectory tracking"}
+  observers:         {key: BBBB6666, path: "Control/Observers and disturbance rejection"}
+
+  # ── Mechanics and modelling ──────────────────────────────────────────────
+  modelling:         {key: CCCC1111, path: "Modelling"}
+  flexible-link:     {key: CCCC2222, path: "Modelling/Flexible link dynamics"}
+  vibration:         {key: CCCC3333, path: "Modelling/Vibration suppression"}
+  identification:    {key: CCCC4444, path: "Modelling/Parameter identification"}
+
+  # ── Interaction and safety ───────────────────────────────────────────────
+  phri:              {key: DDDD1111, path: "Human-robot interaction"}
+  safety:            {key: DDDD2222, path: "Human-robot interaction/Safety and collision"}
+
+  # ── Housekeeping ─────────────────────────────────────────────────────────
+  reviews:           {key: EEEE1111, path: "Reviews and surveys"}
+  benchmarks:        {key: EEEE2222, path: "Benchmarks and datasets"}
+  inbox:             {key: EEEE3333, path: "Inbox (unsorted)"}
+
+# Topic word -> suggested alias.
+# Stage 4 only SUGGESTS. An explicit --collection always wins, and nothing is
+# written to Zotero until you confirm a dry-run.
+# 主题词 -> 建议分类。阶段 4 只作建议；--collection 显式指定优先，
+# 且在你确认 dry-run 之前不会向 Zotero 写入任何东西。
+theme_hints:
+  passivity:            passivity
+  coupled stability:    passivity
+  impedance:            impedance
+  admittance:           impedance
+  torque control:       torque-control
+  force control:        torque-control
+  disturbance observer: observers
+  series elastic:       sea
+  variable stiffness:   vsa
+  harmonic drive:       transmission
+  flexible link:        flexible-link
+  vibration:            vibration
+  input shaping:        vibration
+  identification:       identification
+  collision:            safety
+  survey:               reviews
+  review:               reviews
+  benchmark:            benchmarks

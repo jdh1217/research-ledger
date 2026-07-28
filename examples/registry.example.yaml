@@ -1,0 +1,73 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# registry.yaml — declare WHERE your tiers live and HOW to parse them.
+#
+# The premise of this tool: these are three DIFFERENT sets, and conflating them
+# is the mistake this tool exists to prevent.
+#
+#   cited       what your manuscript actually cites      (authoritative, small)
+#   candidates  what you are still considering citing     (undecided)
+#   library     what you read to build understanding      (large; not tied to
+#                                                          any single manuscript)
+#
+# "In library but not cited" is NORMAL, not a defect. Reading 70 papers does not
+# mean citing 70 papers. A reconciler that reports that gap as an error is wrong,
+# and will bury the handful of findings that actually matter.
+#
+# 本工具的前提：以下三者是性质不同的集合，混为一谈正是本工具要防止的错误。
+#   cited       稿件实际引用的文献      （权威，数量少）
+#   candidates  仍在考虑引用的候选池    （待决）
+#   library     为建立理解而读过的文献  （量大，不隶属任何单篇稿件）
+# 「在 library 而不在 cited」是正常状态，不是缺陷。把这个差额报成错误，
+# 只会把真正要紧的那几条埋掉。
+#
+# Copy to registry.yaml (gitignored) and edit. | 复制为 registry.yaml 后修改。
+# ─────────────────────────────────────────────────────────────────────────────
+
+project: my-project
+
+tiers:
+  # ── A. The citation set your manuscript compiles against ──────────────────
+  cited:
+    type: bibtex
+    path: paper/refs.bib
+
+  # ── B. Candidate pool — optional; delete the whole block if you keep none ──
+  # markdown_inline_keys scans a file (optionally one section) for keys matching
+  # key_pattern. The default catches backticked nameYYYYsuffix keys.
+  candidates:
+    type: markdown_inline_keys
+    path: notes/reading_plan.md
+    section: "Candidate citations"     # optional: limit to one h2 section
+    # key_pattern: see docs/WORKFLOW.md for the default and how to override
+
+  # ── C. Your reading library ───────────────────────────────────────────────
+  # markdown_table reads a pipe table and takes one column as the key.
+  library:
+    type: markdown_table
+    path: notes/library.md
+    section: "Read manifest"           # optional
+    key_column: 2                      # 1-based index of the key column
+    columns:                           # optional labels, used in report output
+      3: year
+      4: first_author
+      5: venue
+      6: topic
+      7: relevance
+      8: read
+
+# ── Note vault — optional ───────────────────────────────────────────────────
+# One Markdown note per key, with YAML frontmatter carrying bibkey (and ideally
+# doi and zotero_key). Any editor works; Obsidian is convenient for its
+# wikilinks and graph view, but nothing here depends on it.
+vault:
+  sources_dir: "C:/Users/you/Vault/my-project/sources"   # forward slashes work on Windows too
+
+# ── Key aliases ─────────────────────────────────────────────────────────────
+# manuscript-side key -> library-side key.
+# Without these, reconciliation emits a false positive for every key you ever
+# renamed. In practice this was the single largest source of noise: declare them.
+# 论文侧键 -> 库侧键。不声明别名，对账会对每个改过名的键系统性误报——
+# 实测中这是噪声的最大来源。
+aliases:
+  refPD: pratt1995sea
+  # oldkey2019: newkey2019suffix

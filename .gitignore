@@ -1,0 +1,31 @@
+# ── Secrets: never commit ───────────────────────────────────────────────────
+# config.json holds a Zotero Web API key with read+write access to your whole
+# library. registry.yaml / collections.yaml describe your private research
+# structure. Templates for all three live in config.example.json and examples/.
+config.json
+registry.yaml
+collections.yaml
+*.key
+.env
+
+# ── Run artifacts: regenerable, may contain institutional session traces ────
+runs/
+reports/
+*.log
+
+# ── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── OS / editor ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/

@@ -1,0 +1,29 @@
+{
+  "project": "my-project",
+
+  "contact_email": "you@example.edu",
+  "_comment_contact": "Used for the Crossref / OpenAlex / Unpaywall polite pool. A real address raises your rate limits noticeably. | 用于 Crossref / OpenAlex / Unpaywall 的 polite pool，填真实邮箱可显著提高配额。",
+
+  "zotero": {
+    "library_id": "0000000",
+    "library_type": "user",
+    "api_key": "PUT_YOUR_ZOTERO_WEB_API_KEY_HERE",
+    "_comment_api_key": "Create at https://www.zotero.org/settings/keys with 'Allow library access' + 'Allow write access'. Keep it in config.json only, which is gitignored. | 在该页面生成，勾选读写权限。只写进已被 gitignore 的 config.json。",
+    "local_api": "http://127.0.0.1:23119/api",
+    "_comment_local_api": "Zotero 7+ exposes a read-only local API (Settings > Advanced). Reads go here; writes go through the Web API. | Zotero 7+ 的本地只读 API，在 设置>高级 开启。读走本地，写走 Web API。",
+    "data_dir": "C:\\Users\\you\\Zotero",
+    "linked_base": "C:\\Users\\you\\ZoteroLinked",
+    "_comment_linked_base": "Must equal Zotero > Settings > Advanced > Files and Folders > Linked Attachment Base Directory. PDFs stored here attach as linked files: never uploaded, so they do not consume your Zotero storage quota. | 必须与 Zotero 的「链接附件基准目录」一致。存于此处的 PDF 以链接附件挂载，不上传、不占云端配额。"
+  },
+
+  "semantic_scholar_api_key": "",
+  "_comment_s2": "Optional. Empty means the anonymous quota (~1 req/s; occasional 429 is handled by exponential backoff). | 可留空，即匿名配额；偶发 429 会自动指数退避。",
+
+  "registry": "registry.yaml",
+  "collections": "collections.yaml",
+
+  "paths": {
+    "runs": "runs",
+    "reports": "reports"
+  }
+}

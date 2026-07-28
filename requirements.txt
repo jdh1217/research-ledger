@@ -1,0 +1,11 @@
+# Core
+requests>=2.31
+PyYAML>=6.0
+
+# Zotero write path (Web API)
+pyzotero>=1.13
+
+# Optional: local PDF text extraction.
+# PyMuPDF is AGPL-3.0 / commercial dual-licensed. It is isolated to a single
+# function in ledger/zot.py so it can be swapped out. See NOTICE.md.
+PyMuPDF>=1.24
